@@ -12,7 +12,7 @@ public class Main {
         findMinMax(stream, Comparator.naturalOrder(), ((min, max) -> System.out.println("Min= " + min + " Max= " + max)));
 
         Stream<Integer> stream1 = new ArrayList<>(Arrays.asList(11, 22, 33, 44, 55, 66, 77, 88, 99)).stream();
-        System.out.println("Количество четных чисел = " + findEven(stream1));
+        findEven(stream1);
 
     }
 
@@ -26,10 +26,10 @@ public class Main {
         }
     }
 
-    public static int findEven(Stream<Integer> stream) {
+    public static void findEven(Stream<Integer> stream) {
         List<Integer> list = stream.toList();
-        return (int) list.stream().filter(i -> i % 2 == 0)
+        System.out.println("Количество четных чисел = " + (int) list.stream().filter(i -> i % 2 == 0)
                 .peek(System.out::println)
-                .count();
+                .count());
     }
 }
